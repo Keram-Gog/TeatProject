@@ -1,0 +1,47 @@
+﻿@model WebApplication3.Models.Order
+
+<h2 class="mb-4">Просмотр заказа #@Model.Id</h2>
+
+<div class="card shadow-sm border-secondary">
+    <div class="card-header bg-secondary text-white">
+        <h4 class="mb-0">Детали заказа</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-4 font-weight-bold text-muted">
+                <i class="bi bi-geo-alt-fill"></i> Город отправителя
+            </dt>
+            <dd class="col-sm-8 text-success fw-bold">@Model.SenderCity</dd>
+
+            <dt class="col-sm-4 font-weight-bold text-muted">
+                <i class="bi bi-house-door-fill"></i> Адрес отправителя
+            </dt>
+            <dd class="col-sm-8 text-success fw-bold">@Model.SenderAddress</dd>
+
+            <dt class="col-sm-4 font-weight-bold text-muted">
+                <i class="bi bi-geo-alt-fill"></i> Город получателя
+            </dt>
+            <dd class="col-sm-8 text-success fw-bold">@Model.RecipientCity</dd>
+
+            <dt class="col-sm-4 font-weight-bold text-muted">
+                <i class="bi bi-house-door-fill"></i> Адрес получателя
+            </dt>
+            <dd class="col-sm-8 text-success fw-bold">@Model.RecipientAddress</dd>
+
+            <dt class="col-sm-4 font-weight-bold text-muted">
+                <i class="bi bi-box-seam"></i> Вес груза
+            </dt>
+            <dd class="col-sm-8 text-success fw-bold">@Model.Weight кг</dd>
+
+            <dt class="col-sm-4 font-weight-bold text-muted">
+                <i class="bi bi-calendar-event"></i> Дата забора груза
+            </dt>
+            <dd class="col-sm-8 text-success fw-bold">@Model.PickupDate.ToString("dd.MM.yyyy")</dd>
+        </dl>
+    </div>
+</div>
+
+
+<div class="mt-4">
+    <a asp-action="Index" class="btn btn-outline-success">Назад к списку</a>
+</div>

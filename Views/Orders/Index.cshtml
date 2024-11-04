@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication3.Models.Order>
+
+<h2>Список заказов</h2>
+<a asp-action="Create" class="btn btn-outline-success" style="margin-bottom: 20px;">Создать новый</a>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Номер заказа</th>
+            <th>Город отправителя</th>
+            <th>Адрес отправителя</th>
+            <th>Город получателя</th>
+            <th>Адрес получателя</th>
+            <th>Вес груза</th>
+            <th>Дата забора груза</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr onclick="window.location.href='@Url.Action("Details", new { id = order.Id })'" style="cursor:pointer;">
+                <td>@order.Id</td>
+                <td>@order.SenderCity</td>
+                <td>@order.SenderAddress</td>
+                <td>@order.RecipientCity</td>
+                <td>@order.RecipientAddress</td>
+                <td>@order.Weight</td>
+                <td>@order.PickupDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
